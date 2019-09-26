@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>register</title>
@@ -14,13 +15,17 @@
 </head>
 <body>
     <h1>Register</h1>
-    <form method="POST">
-        First Name: <label><input type="text" name="firstName"/></label><br>
-        Last Name: <label><input type="text" name="lastName"></label><br>
-        Username: <label><input type="text" name="username"></label><br>
-        Password: <label><input type="password" name="password"></label><br>
-        Email: <label><input type="email" name="email"></label><br>
+    <sf:form method="POST" commandName="spitter">
+        First Name: <sf:input path="firstName"/><br>
+            <sf:errors path="firstName" cssClass="error"/><br>
+        Last Name: <label><sf:input path="lastName"/><br>
+            <sf:errors path="lastName" cssClass="error"/><br>
+        Username: <label><sf:input path="username"/></label><br>
+            <sf:errors path="username" cssClass="error"/><br>
+        Password: <sf:password path="password"/><br>
+            <sf:errors path="password" cssClass="error"/><br>
+        Email: <label><sf:input type="email" path="email"/></label><br>
         <input type="submit" value="Register">
-    </form>
+    </sf:form>
 </body>
 </html>
